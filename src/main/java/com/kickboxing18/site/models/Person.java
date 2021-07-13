@@ -1,6 +1,5 @@
 package com.kickboxing18.site.models;
 
-import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -10,15 +9,15 @@ public class Person {
 
     private int id;
 
-    @NotEmpty(message = "Name should not be empty")
+    @NotEmpty(message = "Имя не может быть пустым")
     @Size(min = 2, max = 30, message = "Длина имени возможна от 2 до 30 символов")
     private String name;
 
     @Min(value = 0, message = "Возраст должен быть больше 0")
     private int age;
 
-    @NotEmpty(message = "email should not be empty")
-    @Email(message = "Email should be valid")
+    @NotEmpty(message = "Email не может быть пустым")
+    @Email(message = "Email должен быть валидным")
     private String email;
 
     public Person(int id, String name, int age, String email) {

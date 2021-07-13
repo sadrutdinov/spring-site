@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.kickboxing18.site.dao.PersonDao;
 import com.kickboxing18.site.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -35,13 +33,6 @@ public class PeopleController {
         return "people/show";
     }
 
-    @GetMapping("/json")
-    public String indexJson(Model model) {
-        String json = new Gson().toJson(personDao.index());
-        model.addAttribute("json", json);
-
-        return "people/indexJson";
-    }
 
     @GetMapping("/new")
     public String newPerson(@ModelAttribute("person") Person person) {
@@ -84,6 +75,8 @@ public class PeopleController {
 
         return "redirect:/people";
     }
+
+
 
 
 }
